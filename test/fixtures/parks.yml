@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  entrance_fee_foreign: 9.99
+  entrance_fee_local: 9.99
+
+two:
+  name: MyString
+  entrance_fee_foreign: 9.99
+  entrance_fee_local: 9.99

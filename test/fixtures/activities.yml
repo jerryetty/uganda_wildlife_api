@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price_foreign: 9.99
+  price_local: 9.99
+  duration_hours: 1
+  park: one
+
+two:
+  name: MyString
+  price_foreign: 9.99
+  price_local: 9.99
+  duration_hours: 1
+  park: two
