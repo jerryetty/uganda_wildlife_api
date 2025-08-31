@@ -41,11 +41,11 @@ class Api::V1::BookingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
-      @booking = Booking.find(params.expect(:id))
+      @booking = Booking.find(params.require(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.expect(booking: [ :visitor_name, :email, :phone, :visit_date, :number_of_visitors, :status, :activity_id, :user_id ])
+      params.require(:booking).permit(:visitor_name, :email, :phone, :visit_date, :number_of_visitors, :status, :activity_id, :user_id)
     end
 end

@@ -9,12 +9,12 @@ class Api::V1::ActivitiesController < ApplicationController
       @activities = Activity.all
     end
 
-    render json: @activities
+    render json: ActivitySerializer.new(@activities).serializable_hash
   end
 
   # GET /activities/1
   def show
-    render json: @activity
+    render json: ActivitySerializer.new(@activity).serializable_hash
   end
 
   # POST /activities
@@ -45,11 +45,11 @@ class Api::V1::ActivitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
-      @activity = Activity.find(params.expect(:id))
+      @activity = Activity.find(params.require(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def activity_params
-      params.expect(activity: [ :name, :price_foreign, :price_local, :duration_hours, :park_id ])
+      params.require(:activity).permit(:name, :price_foreign, :price_local, :duration_hours, :park_id)
     end
 end

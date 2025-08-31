@@ -41,11 +41,11 @@ class Api::V1::ParksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_park
-      @park = Park.find(params.expect(:id))
+      @park = Park.find(params.require(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def park_params
-      params.expect(park: [ :name, :entrance_fee_foreign, :entrance_fee_local ])
+      params.require(:park).permit(:name, :entrance_fee_foreign, :entrance_fee_local)
     end
 end
